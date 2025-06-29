@@ -11,23 +11,37 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
         }
         header {
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .iframe-wrapper {
+        .iframe-container {
             width: 100%;
-            height: 100vh; /* Full screen height */
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
             position: relative;
+            margin-top: 56px; /* Height of navbar */
         }
-        .iframe-wrapper iframe {
+        .iframe-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: none;
+        }
+        /* Remove container padding for mobile */
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            .iframe-container {
+                margin-top: 56px;
+                padding-top: 150%; /* More vertical space for mobile */
+            }
         }
     </style>
 </head>
@@ -47,11 +61,11 @@
             </div>
         </div>
     </header>
-    <div class="container mt-5 pt-5">
-        <div class="iframe-wrapper">
+    
+    <div class="container-fluid">
+        <div class="iframe-container">
             <iframe src="https://script.google.com/macros/s/AKfycbwBqU8f9S36WI-XOD6wqcXM1vCriMK3q3MP8A1rAWdcZWhTgCEHVYIX0EwUq0HtJgJ6hQ/exec?embedded=true"></iframe>
         </div>
     </div>
-
 </body>
 </html>
